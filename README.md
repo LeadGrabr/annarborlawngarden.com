@@ -1,1 +1,1 @@
-# annarborlawngarden.com
+# webpack-static-boilerplate

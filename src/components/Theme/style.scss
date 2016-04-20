@@ -1,0 +1,22 @@
+@import "constants";
+
+* { box-sizing: border-box }
+
+body {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+a {
+    color: $black;
+    text-decoration: none;
+}
+
+button[disabled] {
+    cursor: not-allowed !important;
+}
+
+input, textarea {
+    background-color: transparentize($white, 0.75);
+}
