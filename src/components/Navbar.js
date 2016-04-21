@@ -44,6 +44,7 @@ export default class Navbar extends Component {
                             }}
                         />
                         <NavItem
+                            color="secondary"
                             is={IndexLink}
                             style={{
                                 fontWeight: 600,
@@ -51,11 +52,10 @@ export default class Navbar extends Component {
                             }}
                             to="/"
                         >
-                            AnnArbor Pictures
+                            AnnArborLawnGarden.com
                         </NavItem>
                     </Flex>
                     <Drawer
-                        backgroundColor="secondary"
                         color="primary"
                         open={drawer}
                         style={{
@@ -74,6 +74,9 @@ export default class Navbar extends Component {
                             <Close
                                 onClick={() => this.setState({ drawer: false })}
                                 size={iconSize}
+                                style={{
+                                    color: colors.secondary
+                                }}
                             />
                         </Flex>
                         <MainNav/>

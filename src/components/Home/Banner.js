@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import { default as React, Component, PropTypes } from 'react'
 import { Banner, Base, Text, Heading } from 'rebass'
-import { default as weddingSelfie } from './wedding-selfie.jpg'
+import { default as lawn } from './lawn.jpg'
 import { default as color } from 'color'
 import { default as LeadForm } from '@leadgrabr/lead-form'
 import { connect } from 'redux-await'
@@ -25,7 +25,7 @@ export default class HomeBanner extends Component {
     static propTypes = {
         statuses: PropTypes.object.isRequired,
         submit: PropTypes.func.isRequired,
-        width: PropTypes.string.isRequired
+        width: PropTypes.number.isRequired
     };
 
     state = {
@@ -52,7 +52,7 @@ export default class HomeBanner extends Component {
         return (
             <Banner
                 align="center"
-                backgroundImage={weddingSelfie}
+                backgroundImage={lawn}
                 p={2}
                 style={{
                     backgroundPosition: '27%',
@@ -75,13 +75,10 @@ export default class HomeBanner extends Component {
                         }}
                     >
                         <Page.Title>
-                            30 years of Experience Combine<br/>
-                            to Get you the Perfect Shot
+                            Find Lawncare Specialists in Ann Arbor, Mi
                         </Page.Title>
                         <Text>
-                            Our photographers have over 40 years of
-                            combined experience to help get you the
-                            perfect shot.
+                            Lorem ipsum dolor sit amet, no per partem viderer.
                         </Text>
                     </Box>
                     <Box
@@ -103,15 +100,18 @@ export default class HomeBanner extends Component {
                             <div style={{ textAlign: 'left' }}>
                                 <LeadForm
                                     buttonProps={{
+                                        style: {
+                                            color: colors.secondary
+                                        },
                                         theme: 'primary'
                                     }}
                                     messageProps={{
-                                        label: 'Breifly describe your event'
+                                        label: 'What services are you interested in?'
                                     }}
                                     onSuccess={::this.handleSuccess}
                                     status={statuses[SUBMIT_LEAD]}
                                     submit={submit}
-                                    theme="secondary"
+                                    theme="default"
                                     values={formValues}
                                 />
                                 <Text mb={0}>

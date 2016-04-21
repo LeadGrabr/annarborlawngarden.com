@@ -25,8 +25,8 @@ Page.propTypes = {
 const Title = ({ children }) =>
     <Heading
         level={1}
-        mb={1}
-        mt={1}
+        mb={2}
+        mt={4}
         style={{ textAlign: 'center' }}
     >
         {children}
