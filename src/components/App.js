@@ -63,7 +63,7 @@ export default class App extends Component {
                         { src: '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.7.0/lodash.min.js' }
                         /* eslint-enable max-len */
                     ]}
-                    title="Ann Arbor Pictures"
+                    title="Ann Arbor Lawn & Garden"
                 />
                 <Theme>
                     <div

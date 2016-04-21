@@ -1,5 +1,5 @@
-import { default as React, PropTypes } from 'react'
-import { Base, Heading, Section, SectionHeader, Text } from 'rebass'
+import { default as React } from 'react'
+import { Heading, Section, Text } from 'rebass'
 import { BottomBar, Page, GoogleMap } from 'components'
 import { default as Banner } from './Banner'
 import { default as Gallery } from '@leadgrabr/gallery'
@@ -7,9 +7,9 @@ import { default as Testimonials } from '@leadgrabr/testimonials'
 import { default as headshotOne } from './headshot-one.jpg'
 import { default as headshotTwo } from './headshot-two.jpg'
 import { default as BrandBadges } from '@leadgrabr/brand-badges'
-import { default as Heart } from 'react-icons/lib/go/heart'
-import { default as Organization } from 'react-icons/lib/go/organization'
-import { default as Location } from 'react-icons/lib/go/location'
+import { default as Flower } from 'react-icons/lib/md/filter-vintage'
+import { default as Goat } from 'react-icons/lib/md/goat'
+import { default as Schedule } from 'react-icons/lib/md/event-note'
 
 const testimonialText = `
     Wisi magna pri ei, equidem tibique an eum, per te quod similique.
@@ -17,43 +17,40 @@ const testimonialText = `
     ancillae duo. Vel legendos pericula ea, per esse rationibus ut.
 `
 
-const Home = (props, { rebass: { colors } }) =>
+const Home = (props) =>
     <Page>
         <Banner/>
         <Page.Content>
-            <Heading
-                level={2}
-                mb={2}
-                style={{ textAlign: 'center' }}
-            >
-                Make Ann Arbor Lawn Garden your Lawn Care Specialist
-            </Heading>
-            <Text style={{ textAlign: 'center' }}>
-                Whether you're planning an engagement,
-                need lifestyle photography, or are just
-                looking to document your latest adventures,
-                Ann Arbor Pictures has the equipment and
-                the expertise to get you your perfect
-                image in a unique vintage style.
-            </Text>
-            <Gallery
-                count={6}
-                imgProps={{
-                    m: 2 // eslint-disable-line id-length
-                }}
-                photos={[
-                    'DlsOa5moK4w',
-                    'HEc78rsnoNg',
-                    'jJzmexjwfGE'
-                ]}
-                size={250}
-            />
-        </Page.Content>
-        <Section style={{ backgroundColor: colors.info }}>
-            <Page.Content>
-                <SectionHeader
-                    heading="Customer Testimonials"
+            <Section>
+                <Heading
+                    level={2}
+                    mb={2}
+                    style={{ textAlign: 'center' }}
+                >
+                    Make Ann Arbor Lawn Garden your Lawn Care Specialist
+                </Heading>
+                <Text style={{ textAlign: 'center' }}>
+                    Whether you're planning an engagement,
+                    need lifestyle photography, or are just
+                    looking to document your latest adventures,
+                    Ann Arbor Pictures has the equipment and
+                    the expertise to get you your perfect
+                    image in a unique vintage style.
+                </Text>
+                <Gallery
+                    imgProps={{
+                        my: 2 // eslint-disable-line id-length
+                    }}
+                    photos={[
+                        'wuU_SSxDeS0',
+                        'DlsOa5moK4w',
+                        'jJzmexjwfGE',
+                        '-regSZitt5o'
+                    ]}
+                    size={180}
                 />
+            </Section>
+            <Section>
                 <Testimonials
                     testimonials={[
                         {
@@ -67,42 +64,31 @@ const Home = (props, { rebass: { colors } }) =>
                         }
                     ]}
                 />
-            </Page.Content>
-        </Section>
-        <Section>
-            <Page.Content>
-                <SectionHeader
-                    heading="Why We're Great"
-                />
+            </Section>
+            <Section>
                 <BrandBadges
                     {...props}
-                    backgroundColor="primary"
+                    backgroundColor="default"
                     badges={[
                         {
-                            icon: Heart,
-                            heading: 'You\'ll love your photos'
+                            heading: 'Beautiful Flower Bed Installations',
+                            icon: <Flower size={60}/>
                         },
                         {
-                            icon: Organization,
-                            heading: 'Our organization is strong!'
+                            heading: 'Call and Schedule a Consultation Today',
+                            icon: <Schedule size={60}/>
                         },
                         {
-                            icon: Location,
-                            heading: 'We\'re local!'
+                            heading: 'Pet Friendly',
+                            icon: <Goat size={60}/>
                         }
                     ]}
                     color="secondary"
                 />
-            </Page.Content>
-        </Section>
-        <Base>
-            <GoogleMap style={{ height: 300 }}/>
-        </Base>
+            </Section>
+        </Page.Content>
+        <GoogleMap style={{ height: 300 }}/>
         <BottomBar/>
     </Page>
-
-Home.contextTypes = {
-    rebass: PropTypes.object.isRequired
-}
 
 export default Home

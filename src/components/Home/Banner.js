@@ -8,7 +8,6 @@ import { connect } from 'redux-await'
 import { constants, createLead } from 'redux/modules/app'
 const { SUBMIT_LEAD } = constants
 import { Flex, Box } from 'reflexbox'
-import { Page } from 'components'
 
 @connect(
     ({ app: { width } }) => ({ width }),
@@ -74,9 +73,9 @@ export default class HomeBanner extends Component {
                             width: boxWidth
                         }}
                     >
-                        <Page.Title>
+                        <Heading level={1}>
                             Find Lawncare Specialists in Ann Arbor, Mi
-                        </Page.Title>
+                        </Heading>
                         <Text>
                             Lorem ipsum dolor sit amet, no per partem viderer.
                         </Text>

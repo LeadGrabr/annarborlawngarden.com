@@ -1,7 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import { default as React, Component, PropTypes } from 'react'
 import { Page } from 'components'
-import { default as Gallery } from '@leadgrabr/gallery'
 import { default as LeadForm } from '@leadgrabr/lead-form'
 import { connect } from 'redux-await'
 import { constants, createLead } from 'redux/modules/app'
@@ -25,15 +24,13 @@ export default class Contact extends Component {
                 </Page.Title>
                 <Page.Content>
                     <LeadForm
+                        buttonProps={{
+                            backgroundColor: 'primary',
+                            color: 'secondary'
+                        }}
                         status={statuses[SUBMIT_LEAD]}
                         submit={submit}
-                    />
-                    <Gallery
-                        photos={[
-                            'DlsOa5moK4w',
-                            'HEc78rsnoNg',
-                            'jJzmexjwfGE'
-                        ]}
+                        theme="secondary"
                     />
                 </Page.Content>
             </Page>

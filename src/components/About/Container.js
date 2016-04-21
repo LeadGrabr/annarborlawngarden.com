@@ -3,12 +3,11 @@ import { default as React, Component, PropTypes } from 'react'
 import { default as About } from './About'
 import { Page } from 'components'
 import { default as LeadForm } from '@leadgrabr/lead-form'
-import { Section, SectionHeader, Text } from 'rebass'
+import { Heading, Section, Text } from 'rebass'
 import { Flex, Box } from 'reflexbox'
 import { default as Gallery } from '@leadgrabr/gallery'
 import { connect } from 'redux-await'
 import { constants, createLead } from 'redux/modules/app'
-const { medium } = constants.BREAKPOINTS
 const { SUBMIT_LEAD } = constants
 
 @connect(
@@ -26,12 +25,18 @@ export default class Container extends Component {
         width: PropTypes.number.isRequired
     };
 
+    static contextTypes = {
+        breakpoints: PropTypes.object.isRequired
+    };
+
     render() {
         const { statuses, submit, width } = this.props
+        const { medium } = this.context.breakpoints
         const contactBoxProps = {
             mb: 2,
-            px: 2,
-            col: width >= medium ? 6 : 12
+            style: {
+                width: width > medium ? '50%' : '100%'
+            }
         }
         return (
             <Page>
@@ -53,32 +58,18 @@ export default class Container extends Component {
                                 'HEc78rsnoNg',
                                 'jJzmexjwfGE'
                             ]}
-                            size={260}
+                            size={150}
                         />
                     </Section>
                     <Section>
-                        <SectionHeader
-                            heading="Contact us today"
-                            style={{ textAlign: 'center' }}
-                        />
                         <Flex column={!(width > medium)}>
-                            <Box {...contactBoxProps}>
-                                <LeadForm
-                                    status={statuses[SUBMIT_LEAD]}
-                                    submit={submit}
-                                />
-                            </Box>
-                            <Box {...contactBoxProps}>
-                                <Gallery
-                                    count={width >= medium ? 8 : 10}
-                                    my={3}
-                                    photos={[
-                                        'DlsOa5moK4w',
-                                        'HEc78rsnoNg',
-                                        'jJzmexjwfGE'
-                                    ]}
-                                    size={50}
-                                />
+                            <Box
+                                mr={width > medium ? 2 : 0}
+                                {...contactBoxProps}
+                            >
+                                <Heading level={2}>
+                                    Contact us today
+                                </Heading>
                                 <Text>
                                     Et his feugait denique appellantur. Meis euismod no mel, at
                                     oblique praesent est, quo cu paulo debitis postulant. Cu agam
@@ -97,6 +88,20 @@ export default class Container extends Component {
                                     putant expetenda deterruisset, te mutat tempor neglegentur
                                     his. At modo facer ubique sea, te vidit latine eleifend eam.
                                 </Text>
+                            </Box>
+                            <Box
+                                ml={width > medium ? 2 : 0}
+                                {...contactBoxProps}
+                            >
+                                <LeadForm
+                                    buttonProps={{
+                                        backgroundColor: 'primary',
+                                        color: 'secondary'
+                                    }}
+                                    status={statuses[SUBMIT_LEAD]}
+                                    submit={submit}
+                                    theme="secondary"
+                                />
                             </Box>
                         </Flex>
                     </Section>

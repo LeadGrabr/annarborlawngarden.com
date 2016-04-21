@@ -9,8 +9,8 @@ const baseColors = {
     blue: '#cfdbed',
     red: '#f52',
     orange: '#f70',
-    green: '#4b7017',
-    pink: '#e5b9b3',
+    green: '#344410',
+    pink: '#d26d36',
     yellow: '#e7e3c5'
 }
 
@@ -74,7 +74,7 @@ export default class Theme extends Component {
                     fontWeight: 200
                 },
                 Section: {
-                    padding: scale[1]
+                    padding: scale[3]
                 },
                 SectionHeader: {
                     textAlign: 'center'
