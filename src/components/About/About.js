@@ -22,18 +22,6 @@ const About = () =>
             hendrerit vix, clita omnium verterem ei qui. Vel in decore
             mediocritatem, dicam graece urbanitas his cu.
         </Text>
-        <Text>
-            Te dolor nullam nonumes his. Sit natum postea accusata te,
-            appetere dissentiet has te, id exerci labores pertinax nec.
-            In vel invenire delicatissimi, nam diceret civibus ex. Cu
-            omnes mucius est, qui ei dico eripuit.
-        </Text>
-        <Text>
-            Ea habemus quaerendum usu, et eam dicat invenire salutandi,
-            ei mel reque iuvaret commune. Nec no congue exerci. Pro ei putant
-            expetenda deterruisset, te mutat tempor neglegentur his. At modo
-            facer ubique sea, te vidit latine eleifend eam.
-        </Text>
     </div>
 
 export default About

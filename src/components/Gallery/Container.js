@@ -1,10 +1,16 @@
 import { default as React } from 'react'
-import Gallery from './Gallery'
-import { Page } from '..'
+import { default as Gallery } from '@leadgrabr/gallery'
+import { Page } from 'components'
 
 const Container = () =>
     <Page>
-        <Gallery/>
+        <Gallery
+            photos={[
+                'DlsOa5moK4w',
+                'HEc78rsnoNg',
+                'jJzmexjwfGE'
+            ]}
+        />
     </Page>
 
 export default Container

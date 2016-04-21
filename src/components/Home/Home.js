@@ -2,7 +2,7 @@ import { default as React, PropTypes } from 'react'
 import { Base, Heading, Section, SectionHeader, Text } from 'rebass'
 import { BottomBar, Page, GoogleMap } from 'components'
 import { default as Banner } from './Banner'
-import { default as Gallery } from 'Gallery'
+import { default as Gallery } from '@leadgrabr/gallery'
 import { default as Testimonials } from '@leadgrabr/testimonials'
 import { default as headshotOne } from './headshot-one.jpg'
 import { default as headshotTwo } from './headshot-two.jpg'
@@ -26,7 +26,7 @@ const Home = (props, { rebass: { colors } }) =>
                 mb={2}
                 style={{ textAlign: 'center' }}
             >
-                Fall in Love with Ann Arbor Pictures!
+                Make Ann Arbor Lawn Garden your Lawn Care Specialist
             </Heading>
             <Text style={{ textAlign: 'center' }}>
                 Whether you're planning an engagement,
@@ -41,6 +41,11 @@ const Home = (props, { rebass: { colors } }) =>
                 imgProps={{
                     m: 2 // eslint-disable-line id-length
                 }}
+                photos={[
+                    'DlsOa5moK4w',
+                    'HEc78rsnoNg',
+                    'jJzmexjwfGE'
+                ]}
                 size={250}
             />
         </Page.Content>
@@ -70,6 +75,7 @@ const Home = (props, { rebass: { colors } }) =>
                     heading="Why We're Great"
                 />
                 <BrandBadges
+                    {...props}
                     backgroundColor="primary"
                     badges={[
                         {

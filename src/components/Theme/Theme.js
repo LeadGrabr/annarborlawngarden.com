@@ -1,6 +1,5 @@
 import './style.scss'
 import { Component, PropTypes } from 'react'
-// import Color from 'color'
 
 const baseColors = {
     black: '#333',
@@ -10,29 +9,24 @@ const baseColors = {
     blue: '#cfdbed',
     red: '#f52',
     orange: '#f70',
-    green: '#1c7',
-    pink: '#e5b9b3'
+    green: '#4b7017',
+    pink: '#e5b9b3',
+    yellow: '#e7e3c5'
 }
 
 const colors = {
     ...baseColors,
-    primary: baseColors.pink,
-    secondary: baseColors.white,
-    default: baseColors.black,
+    primary: baseColors.yellow,
+    secondary: baseColors.green,
+    default: baseColors.white,
     info: baseColors.blue,
     success: baseColors.green,
     warning: baseColors.orange,
-    error: baseColors.pink
+    error: baseColors.red
 }
 
 const scale = [0, 10, 25, 48, 64]
-const fontSizes = [64, 30, 27, 19, 18, 14, 12]
-
-const breakpoints = {
-    small: 425,
-    medium: 768,
-    large: 1024
-}
+const fontSizes = [64, 31, 27, 19, 18, 14, 12]
 
 export default class Theme extends Component {
 
@@ -48,7 +42,11 @@ export default class Theme extends Component {
 
     getChildContext() {
         return {
-            breakpoints,
+            breakpoints: {
+                small: 425,
+                medium: 768,
+                large: 1024
+            },
             rebass: {
                 colors,
                 fontSizes,
@@ -74,6 +72,12 @@ export default class Theme extends Component {
                 },
                 NavItem: {
                     fontWeight: 200
+                },
+                Section: {
+                    padding: scale[1]
+                },
+                SectionHeader: {
+                    textAlign: 'center'
                 },
                 Text: {
                     fontSize: fontSizes[5],
