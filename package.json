@@ -74,8 +74,8 @@
   "scripts": {
     "start": "npm run start-dev",
     "dev": "better-npm-run start-dev",
-    "build-dev": "better-npm-run build-dev",
-    "deploy-dev": "aws s3 sync ./dist s3://dev.annarbor.pictures --exclude '.DS_Store' --profile home",
+    "build-prod": "better-npm-run build-prod",
+    "deploy-prod": "aws s3 sync ./dist s3://annarborlawngarden.com --exclude '.DS_Store' --profile leadgrabr",
     "lint": "eslint -c .eslintrc src"
   },
   "betterScripts": {
@@ -89,8 +89,8 @@
         "GOOGLE_MAPS_APIKEY": "AIzaSyCgDmnVgrSncTpR8vgsyEKSBUm1iXHM7Y4"
       }
     },
-    "build-dev": {
-      "command": "webpack",
+    "build-prod": {
+      "command": "webpack -p",
       "env": {
         "API_ENDPOINT": "http://api.leadgrabr.com/api/v1",
         "BABEL_ENV": "production",
