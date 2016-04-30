@@ -7,7 +7,7 @@
   "devDependencies": {
     "@leadgrabr/brand-badges": "0.0.5",
     "@leadgrabr/gallery": "0.0.5",
-    "@leadgrabr/lead-form": "0.0.8",
+    "@leadgrabr/lead-form": "0.0.9",
     "@leadgrabr/testimonials": "0.0.4",
     "api-bro": "^1.3.9",
     "autobind-decorator": "^1.3.3",
