@@ -75,7 +75,8 @@
     "start": "npm run start-dev",
     "dev": "better-npm-run start-dev",
     "build-prod": "better-npm-run build-prod",
-    "deploy-prod": "aws s3 sync ./dist s3://annarborlawngarden.com --exclude '.DS_Store' --profile leadgrabr",
+    "deploy-prod": "npm run build-prod; aws s3 sync ./dist s3://annarborlawngarden.com --exclude '.DS_Store' --profile leadgrabr",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id ETESS3MPRHHC4 --invalidation-batch '{\"Paths\": {\"Quantity\": 1,\"Items\": [\"/*\"]},\"CallerReference\": \"string\"}' --profile leadgrabr",
     "lint": "eslint -c .eslintrc src"
   },
   "betterScripts": {
