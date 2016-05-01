@@ -38,7 +38,7 @@ export function createLead(data = {}) {
             [SUBMIT_LEAD]: client.post('Lead', {
                 data: {
                     ...data,
-                    _audience: process.env.AUDIENCE
+                    audience: process.env.AUDIENCE
                 }
             })
         }
