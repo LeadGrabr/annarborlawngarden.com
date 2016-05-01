@@ -3,6 +3,7 @@ import { Theme } from '.'
 import { default as Helmet } from 'react-helmet'
 import { setScreenSize } from '../redux/modules/app'
 import { connect } from 'react-redux'
+import GoogleAnalytics from 'react-g-analytics'
 import { default as joifulReactForms } from './JoifulReactForms'
 
 @connect(() => ({}), { screenSize: setScreenSize })
@@ -65,6 +66,7 @@ export default class App extends Component {
                     ]}
                     title="Ann Arbor Lawn & Garden"
                 />
+                <GoogleAnalytics id="UA-77116266-2" />
                 <Theme>
                     <div
                         style={{

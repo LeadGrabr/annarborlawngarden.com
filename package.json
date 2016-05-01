@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "main": "webpack.config.js",
-  "dependencies": {},
+  "dependencies": {
+    "react-g-analytics": "^0.2.6"
+  },
   "devDependencies": {
     "@leadgrabr/brand-badges": "0.0.5",
     "@leadgrabr/gallery": "0.0.5",
