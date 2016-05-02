@@ -1,9 +1,10 @@
 import { default as React } from 'react'
-import { Menu, NavItem } from 'rebass'
+import { NavItem } from 'rebass'
 import { Link } from 'react-router'
+import { Flex } from 'reflexbox'
 
 const MainNav = (props) =>
-    <Menu {...props}>
+    <Flex {...props}>
         <NavItem
             is={Link}
             to="/"
@@ -28,6 +29,6 @@ const MainNav = (props) =>
         >
             Contact
         </NavItem>
-    </Menu>
+    </Flex>
 
 export default MainNav
