@@ -46,8 +46,7 @@ export default class _GoogleMap extends Component {
     }
 
     handleWindowResize() {
-        console.log('handleWindowResize', this._googleMapComponent)
-        triggerEvent(this._googleMapComponent, 'resize')
+        triggerEvent(this.map, 'resize')
     }
 
     /*
@@ -97,7 +96,10 @@ export default class _GoogleMap extends Component {
                 }
                 googleMapElement={
                     <GoogleMap
-                        defaultCenter={{ lat: 42.280826, lng: -83.743038 }}
+                        defaultCenter={{
+                            lat: 42.280826,
+                            lng: -83.743038
+                        }}
                         defaultZoom={10}
                         onClick={::this.handleMapClick}
                         options={{
@@ -106,10 +108,9 @@ export default class _GoogleMap extends Component {
                             streetViewControl: false,
                             zoomControl: false
                         }}
-                        ref={(map) =>
-                            (this._googleMapComponent = map) &&
-                            console.log(map.getZoom())
-                        }
+                        ref={(map) => {
+                            this.map = map
+                        }}
                     >
                     {this.state.markers.map((marker, index) =>
                         <Marker

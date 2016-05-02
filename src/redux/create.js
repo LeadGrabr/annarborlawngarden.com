@@ -35,7 +35,7 @@ export default function createStore(client, browserHistory) {
 
     if (process.env.DEVELOPMENT && module.hot) {
         module.hot.accept('./modules/reducer', () => {
-            store.replaceReducer(require('./modules/reducer'))
+            store.replaceReducer(require('./modules/reducer')) // eslint-disable-line global-require
         })
     }
 
