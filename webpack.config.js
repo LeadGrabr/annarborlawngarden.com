@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const SitemapPlugin = require('sitemap-webpack-plugin')
 
 const routes = [
     '/',
@@ -80,6 +81,7 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('style.css'),
         new StaticSiteGeneratorPlugin('main', routes),
+        new SitemapPlugin('http://annarborlawngarden.com', routes, 'sitemap.xml'),
         new webpack.NormalModuleReplacementPlugin(/^(net|dns|crypto)$/, function(){ return {} }),
         new CleanWebpackPlugin(['dist'], {
             root: __dirname,

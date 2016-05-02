@@ -8,11 +8,11 @@ import { Html } from './components'
 import { default as createStore } from './redux/create'
 import { Provider } from 'react-redux'
 import { default as canUseDOM } from 'can-use-dom'
-import { default as useScroll } from 'scroll-behavior/lib/useStandardScroll'
+import { default as withScroll } from 'scroll-behavior/lib/withStandardScroll'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 if (canUseDOM) {
-    let history = useScroll(() => browserHistory)()
+    let history = withScroll(browserHistory)
     const store = createStore(history)
     history = syncHistoryWithStore(history, store)
     render(
