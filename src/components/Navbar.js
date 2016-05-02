@@ -6,20 +6,34 @@ import { MainNav } from '.'
 import { default as Close } from 'react-icons/lib/md/close'
 import { default as Menu } from 'react-icons/lib/md/menu'
 import { default as color } from 'color'
+import { connect } from 'react-redux'
 
+@connect(({ app: { width } }) => ({ width }))
 
 export default class Navbar extends Component {
 
     static contextTypes = {
+        breakpoints: PropTypes.object.isRequired,
         rebass: PropTypes.object.isRequired
+    };
+
+    static propTypes = {
+        width: PropTypes.number.isRequired
     };
 
     state = {}
 
     render() {
-        const { rebass: { colors } } = this.context
+        const { breakpoints: { small }, rebass: { colors } } = this.context
         const { drawer } = this.state
-        const iconSize = 20
+        const { width } = this.props
+        const iconSize = 17
+        const isMobile = !(width > small)
+
+        if (!width) {
+            return null
+        }
+
         return (
             <Fixed style={{ width: '100%' }}>
                 <Toolbar
@@ -29,58 +43,65 @@ export default class Navbar extends Component {
                 >
                     <Flex
                         align="center"
-                        justify="center"
+                        justify={isMobile ? 'center' : 'space-between'}
                         style={{
                             width: '100%'
                         }}
                     >
-                        <Menu
-                            onClick={() => this.setState({ drawer: true })}
-                            size={iconSize}
-                            style={{
-                                marginTop: (iconSize / 2) * -1,
-                                position: 'absolute',
-                                top: '50%'
-                            }}
-                        />
+                        <If condition={isMobile}>
+                            <Menu
+                                onClick={() => this.setState({ drawer: true })}
+                                size={iconSize}
+                                style={{
+                                    marginTop: (iconSize / 2) * -1,
+                                    position: 'absolute',
+                                    top: '50%'
+                                }}
+                            />
+                        </If>
                         <NavItem
                             color="secondary"
                             is={IndexLink}
                             style={{
                                 fontWeight: 600,
-                                margin: 'auto'
+                                margin: isMobile ? 'auto' : 'inherit'
                             }}
                             to="/"
                         >
                             AnnArborLawnGarden.com
                         </NavItem>
+                        <If condition={!isMobile}>
+                            <MainNav/>
+                        </If>
                     </Flex>
-                    <Drawer
-                        color="primary"
-                        open={drawer}
-                        style={{
-                            boxShadow: (
-                                !drawer
-                                ? null
-                                : `0px 0px 5px ${color(colors.black).alpha(0.2).rgbString()}`
-                            )
-                        }}
-                        width="100%"
-                    >
-                        <Flex
-                            justify="flex-end"
-                            mb={2}
+                    <If condition={isMobile}>
+                        <Drawer
+                            color={colors.black}
+                            open={drawer}
+                            style={{
+                                boxShadow: (
+                                    !drawer
+                                    ? null
+                                    : `0px 0px 5px ${color(colors.black).alpha(0.2).rgbString()}`
+                                )
+                            }}
+                            width="100%"
                         >
-                            <Close
-                                onClick={() => this.setState({ drawer: false })}
-                                size={iconSize}
-                                style={{
-                                    color: colors.secondary
-                                }}
-                            />
-                        </Flex>
-                        <MainNav/>
-                    </Drawer>
+                            <Flex
+                                justify="flex-end"
+                                mb={2}
+                            >
+                                <Close
+                                    onClick={() => this.setState({ drawer: false })}
+                                    size={iconSize}
+                                    style={{
+                                        color: colors.secondary
+                                    }}
+                                />
+                            </Flex>
+                            <MainNav column/>
+                        </Drawer>
+                    </If>
                 </Toolbar>
             </Fixed>
         )
