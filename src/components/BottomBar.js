@@ -15,6 +15,7 @@ const BottomBar = () =>
             <MainNav
                 backgroundColor="default"
                 color="secondary"
+                column
             />
         </Container>
     </Base>

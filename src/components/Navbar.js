@@ -60,7 +60,7 @@ export default class Navbar extends Component {
                             />
                         </If>
                         <NavItem
-                            color="secondary"
+                            color="primary"
                             is={IndexLink}
                             style={{
                                 fontWeight: 600,
@@ -76,6 +76,7 @@ export default class Navbar extends Component {
                     </Flex>
                     <If condition={isMobile}>
                         <Drawer
+                            backgroundColor={colors.white}
                             color={colors.black}
                             open={drawer}
                             style={{
@@ -95,7 +96,7 @@ export default class Navbar extends Component {
                                     onClick={() => this.setState({ drawer: false })}
                                     size={iconSize}
                                     style={{
-                                        color: colors.secondary
+                                        color: colors.primary
                                     }}
                                 />
                             </Flex>

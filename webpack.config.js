@@ -9,7 +9,9 @@ const routes = [
     '/',
     '/about/',
     '/contact/',
-    '/gallery/'
+    '/gallery/',
+    '/testimonials/barbara',
+    '/testimonials/john'
 ]
 
 module.exports = {

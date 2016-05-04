@@ -5,6 +5,7 @@ import { setScreenSize } from '../redux/modules/app'
 import { connect } from 'react-redux'
 import GoogleAnalytics from 'react-g-analytics'
 import { default as joifulReactForms } from './JoifulReactForms'
+import { colors } from './Theme/Theme'
 
 @connect(() => ({}), { screenSize: setScreenSize })
 
@@ -16,11 +17,15 @@ export default class App extends Component {
     };
 
     static childContextTypes = {
+        betterReactSpinkit: PropTypes.object,
         joifulReactForms: PropTypes.object
     };
 
     getChildContext() {
         return {
+            betterReactSpinkit: {
+                color: colors.primary
+            },
             joifulReactForms: {
                 JoifulInput: {
                     types: joifulReactForms.types

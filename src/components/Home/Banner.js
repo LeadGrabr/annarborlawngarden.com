@@ -5,13 +5,13 @@ import { default as lawn } from './lawn.jpg'
 import { default as color } from 'color'
 import { default as LeadForm } from '@leadgrabr/lead-form'
 import { connect } from 'redux-await'
-import { constants, createLead } from 'redux/modules/app'
-const { SUBMIT_LEAD } = constants
+import { SUBMIT_LEAD, submitLead } from 'redux/modules/app'
 import { Flex, Box } from 'reflexbox'
+import { Pulse } from 'better-react-spinkit'
 
 @connect(
     ({ app: { width } }) => ({ width }),
-    { submit: createLead }
+    { submit: submitLead }
 )
 
 export default class HomeBanner extends Component {
@@ -59,67 +59,70 @@ export default class HomeBanner extends Component {
                     minHeight: 1050
                 }}
             >
-                <Flex
-                    align={width < large ? 'center' : 'flex-start'}
-                    column={width < large}
-                >
-                    <Box
-                        auto
-                        mb={2}
-                        mx={width < large ? 0 : 2}
-                        p={2}
-                        style={{
-                            backgroundColor,
-                            width: boxWidth
-                        }}
+                <If condition={width}>
+                    <Flex
+                        align={width < large ? 'center' : 'flex-start'}
+                        column={width < large}
                     >
-                        <Heading level={1}>
-                            Find Lawncare Specialists in Ann Arbor, Mi
-                        </Heading>
-                        <Text>
-                            Lorem ipsum dolor sit amet, no per partem viderer.
-                        </Text>
-                    </Box>
-                    <Box
-                        style={{
-                            backgroundColor,
-                            width: boxWidth
-                        }}
-                    >
-                        <Base
+                        <Box
+                            auto
+                            mb={2}
+                            mx={width < large ? 0 : 2}
                             p={2}
-                            rounded
+                            style={{
+                                backgroundColor,
+                                width: boxWidth
+                            }}
                         >
-                            <Heading
-                                level={2}
-                                mb={2}
-                            >
-                                Show me an instant quote
+                            <Heading level={1}>
+                                Find Lawncare Specialists in Ann Arbor, Mi
                             </Heading>
-                            <div style={{ textAlign: 'left' }}>
-                                <LeadForm
-                                    buttonProps={{
-                                        style: {
-                                            color: colors.secondary
-                                        },
-                                        theme: 'primary'
-                                    }}
-                                    messageProps={{
-                                        label: 'What services are you interested in?'
-                                    }}
-                                    onSuccess={::this.handleSuccess}
-                                    status={statuses[SUBMIT_LEAD]}
-                                    submit={submit}
-                                    theme="default"
-                                    values={formValues}
-                                />
-                                <Text mb={0}>
-                                    *No purchase necessary
-                                </Text>
-                            </div>
-                        </Base>
-                    </Box>
-                </Flex>
+                            <Text>
+                                Lorem ipsum dolor sit amet, no per partem viderer.
+                            </Text>
+                        </Box>
+                        <Box
+                            style={{
+                                backgroundColor,
+                                width: boxWidth
+                            }}
+                        >
+                            <Base
+                                p={2}
+                                rounded
+                            >
+                                <Heading
+                                    level={2}
+                                    mb={2}
+                                >
+                                    Show me an instant quote
+                                </Heading>
+                                <div style={{ textAlign: 'left' }}>
+                                    <LeadForm
+                                        buttonProps={{
+                                            style: {
+                                                color: colors.green
+                                            }
+                                        }}
+                                        messageProps={{
+                                            label: 'What services are you interested in?'
+                                        }}
+                                        onSuccess={::this.handleSuccess}
+                                        status={statuses[SUBMIT_LEAD]}
+                                        submit={submit}
+                                        theme="secondary"
+                                        values={formValues}
+                                    />
+                                    <Text mb={0}>
+                                        *No purchase necessary
+                                    </Text>
+                                </div>
+                            </Base>
+                        </Box>
+                    </Flex>
+                    <Else/>
+                    <Pulse/>
+                </If>
             </Banner>
         )
     }

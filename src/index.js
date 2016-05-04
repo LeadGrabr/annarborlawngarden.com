@@ -8,7 +8,7 @@ import { Html } from './components'
 import { default as createStore } from './redux/create'
 import { Provider } from 'react-redux'
 import { default as canUseDOM } from 'can-use-dom'
-import { default as withScroll } from 'scroll-behavior/lib/withStandardScroll'
+import { default as withScroll } from 'scroll-behavior'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 if (canUseDOM) {

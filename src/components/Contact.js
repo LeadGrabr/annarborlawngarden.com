@@ -3,10 +3,9 @@ import { default as React, Component, PropTypes } from 'react'
 import { Page } from 'components'
 import { default as LeadForm } from '@leadgrabr/lead-form'
 import { connect } from 'redux-await'
-import { constants, createLead } from 'redux/modules/app'
-const { SUBMIT_LEAD } = constants
+import { SUBMIT_LEAD, submitLead } from 'redux/modules/app'
 
-@connect(() => ({}), { submit: createLead })
+@connect(() => ({}), { submit: submitLead })
 
 export default class Contact extends Component {
 
