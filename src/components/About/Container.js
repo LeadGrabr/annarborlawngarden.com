@@ -7,14 +7,13 @@ import { Heading, Section, Text } from 'rebass'
 import { Flex, Box } from 'reflexbox'
 import { default as Gallery } from '@leadgrabr/gallery'
 import { connect } from 'redux-await'
-import { constants, createLead } from 'redux/modules/app'
-const { SUBMIT_LEAD } = constants
+import { SUBMIT_LEAD, submitLead } from 'redux/modules/app'
 
 @connect(
     (state) => ({
         width: state.app.width
     }),
-    { submit: createLead }
+    { submit: submitLead }
 )
 
 export default class Container extends Component {

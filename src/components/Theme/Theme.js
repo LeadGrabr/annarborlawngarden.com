@@ -14,11 +14,11 @@ const baseColors = {
     yellow: '#e7e3c5'
 }
 
-const colors = {
+export const colors = {
     ...baseColors,
-    primary: baseColors.yellow,
-    secondary: baseColors.green,
-    default: baseColors.white,
+    primary: baseColors.green,
+    secondary: baseColors.white,
+    default: baseColors.black,
     info: baseColors.blue,
     success: baseColors.green,
     warning: baseColors.orange,
@@ -53,9 +53,6 @@ export default class Theme extends Component {
                 scale,
                 Badge: {
                     fontWeight: 'lighter'
-                },
-                Button: {
-                    color: colors.black
                 },
                 Drawer: {
                     overflow: 'auto'

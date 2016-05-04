@@ -20,5 +20,9 @@ export default (
             component={views.Gallery}
             path="/gallery"
         />
+        <Route
+            component={views.TestimonialsContainer}
+            path="/testimonials/:name"
+        />
     </Route>
 )

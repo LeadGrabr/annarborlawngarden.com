@@ -1,19 +1,8 @@
 import ApiClient from '../../apiClient'
 import { AWAIT_MARKER } from 'redux-await'
-const SCREEN_DIMENSIONS = 'a2pix/SCREEN_DIMENSIONS_CHANGE'
-const SUBMIT_LEAD = 'a2pix/SUBMIT_LEAD'
+export const SCREEN_DIMENSIONS = 'a2lg/SCREEN_DIMENSIONS_CHANGE'
+export const SUBMIT_LEAD = 'a2lg/SUBMIT_LEAD'
 const client = new ApiClient()
-
-const BREAKPOINTS = {
-    small: 425,
-    medium: 768,
-    large: 1024
-}
-
-export const constants = {
-    BREAKPOINTS,
-    SUBMIT_LEAD
-}
 
 const intitialState = {
     height: 0,
@@ -30,7 +19,7 @@ export function setScreenSize({ height, width }) {
     }
 }
 
-export function createLead(data = {}) {
+export function submitLead(data = {}) {
     return {
         type: SUBMIT_LEAD,
         AWAIT_MARKER,
