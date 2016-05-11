@@ -11,30 +11,14 @@ import { default as Flower } from 'react-icons/lib/md/filter-vintage'
 import { default as Goat } from 'react-icons/lib/md/goat'
 import { default as Schedule } from 'react-icons/lib/md/event-note'
 import { default as Services } from '@leadgrabr/services'
-import { hedgeTrimming, leafPickupAndBagging, mowing, mulchTurning } from 'components/Services'
-
-/*
-    {
-        href: '/services/brush-removal',
-        img: brushRemoval,
-        name: 'Brush Removal'
-    },
-    {
-        href: '/services/mowing',
-        img: mowing,
-        name: 'Mowing'
-    },
-    {
-        href: '/services/mulching',
-        img: mulchTurning,
-        name: 'Mulch Turning'
-    },
-    {
-        href: '/services/flower-bed-mulching',
-        img: flowerBedMulching,
-        name: 'Flower-bed Mulching'
-    }
-*/
+import {
+    brushRemoval,
+    flowerBedMulching,
+    hedgeTrimming,
+    leafPickupAndBagging,
+    mowing,
+    mulchTurning
+  } from 'components/Services'
 
 const Home = (props, { rebass: { colors } }) =>
     <Page>
@@ -83,6 +67,14 @@ const Home = (props, { rebass: { colors } }) =>
                         {
                             ...mulchTurning,
                             href: '/services/mulch-turning'
+                        },
+                        {
+                            ...brushRemoval,
+                            href: '/services/brush-removal'
+                        },
+                        {
+                            ...flowerBedMulching,
+                            href: '/services/flower-bed-mulching'
                         }
                     ]}
                 />
