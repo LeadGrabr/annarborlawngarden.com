@@ -1,18 +1,23 @@
+const routes = [
+    '/',
+    '/about/',
+    '/contact/',
+    '/gallery/',
+    '/testimonials/barbara/',
+    '/testimonials/john/',
+    '/services/brush-removal/',
+    '/services/hedge-trimming/',
+    '/services/leaf-pickup-and-bagging/',
+    '/services/mowing/',
+    '/services/mulch-turning/',
+    '/services/flower-bed-mulching/'
+]
 const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SitemapPlugin = require('sitemap-webpack-plugin')
-
-const routes = [
-    '/',
-    '/about/',
-    '/contact/',
-    '/gallery/',
-    '/testimonials/barbara',
-    '/testimonials/john'
-]
 
 module.exports = {
 

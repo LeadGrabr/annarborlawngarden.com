@@ -1,6 +1,5 @@
 import { default as React, Component, PropTypes } from 'react'
 import { Page } from 'components'
-import { Service } from '@leadgrabr/services'
 import { Flex } from 'reflexbox'
 import { Divider, Heading } from 'rebass'
 import { default as LeadForm } from '@leadgrabr/lead-form'
@@ -26,12 +25,22 @@ export default class ServiceContainer extends Component {
     }
 
     render() {
-        const { params: { name }, statuses, submit } = this.props
+        const { params, statuses, submit } = this.props
+        const { img, name } = this.getService(params.name)
         return (
             <Page>
                 <Page.Content>
                     <Flex column>
-                        <Service {...this.getService(name)}/>
+                        <Heading
+                            level={1}
+                            mb={2}
+                        >
+                            {name}
+                        </Heading>
+                        <img
+                            alt={name}
+                            src={img}
+                        />
                         <Divider/>
                         <Heading
                             mb={3}
